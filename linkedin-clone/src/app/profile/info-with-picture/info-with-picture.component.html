@@ -1,13 +1,13 @@
-<div class="card" style="width: 18rem">
+<div *ngIf="infoUser" class="card" style="width: 18rem">
   <div class="card-body">
     <h5 class="card-title">
-      {{ infoUser[0].name + " " + infoUser[0].surname }}
+      {{ infoUser.name + " " + infoUser.surname }}
     </h5>
     <p class="card-text">
-      {{ infoUser[0].title }}
+      {{ infoUser.title }}
     </p>
   </div>
-  <img src="{{ infoUser[0].image }}" class="card-img-top" alt="..." />
+  <img src="{{ infoUser.image }}" class="card-img-top" alt="..." />
 
   <ul class="list-group list-group-flush">
     <li class="list-group-item">An item</li>
