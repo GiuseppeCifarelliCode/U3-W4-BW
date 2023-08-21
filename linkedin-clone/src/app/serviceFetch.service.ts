@@ -15,7 +15,7 @@ export class ServiceFetchService {
   //qui famo la fetch get
   //possiamo dare id come parametro della get
 
-  metodoPerGet(){
+  metodoPerGet() {
     return this.http.get(this.url + 'me', {
       headers: { Authorization: this.password },
     });
@@ -23,6 +23,13 @@ export class ServiceFetchService {
   metodoPerGetAll(): Observable<[]> {
     return this.http.get<[]>(this.url, {
       headers: { Authorization: this.password },
+    });
+  }
+  metodoPerPut(modifica: string) {
+    return this.http.put(this.url + modifica, {
+      headers: {
+        Authorization: this.password,
+      },
     });
   }
   //qui famo la fetch put
