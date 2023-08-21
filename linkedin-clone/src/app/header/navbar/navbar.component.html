@@ -19,8 +19,8 @@
       <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
   </div>
-  <div>
-    <ul class="navbar-nav d-flex flex-row">
+  <div class="d-flex align-items-center">
+    <ul class="navbar-nav d-flex flex-row mt-3">
       <div class="d-flex flex-column justify-content-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -38,6 +38,7 @@
           <a class="nav-link" href="#">Home</a>
         </li>
       </div>
+
       <div class="d-flex flex-column justify-content-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -55,6 +56,7 @@
           <a class="nav-link" href="#">Rete</a>
         </li>
       </div>
+
       <div class="d-flex flex-column justify-content-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -75,6 +77,7 @@
           <a class="nav-link" href="#">Lavoro</a>
         </li>
       </div>
+
       <div class="d-flex flex-column justify-content-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -92,6 +95,7 @@
           <a class="nav-link" href="#">Messaggistica</a>
         </li>
       </div>
+
       <div class="d-flex flex-column justify-content-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -111,28 +115,30 @@
         </li>
       </div>
     </ul>
-  </div>
-  <div class="dropdown mx-2">
-    <button
-      class="btn btn-secondary dropdown-toggle"
-      type="button"
-      data-bs-toggle="dropdown"
-      aria-expanded="false"
-    >
-      <div class="w-25 h-100">
+
+    <div class="dropdown mx-2 d-flex flex-column align-items-center">
+      <div class="w-100 d-flex justify-content-center align-items-center">
         <img
           src="../../../assets/images/exampleProfileImage.png"
           alt="exampleimage"
-          class="img-fluid"
-          style="max-width: 50px; max-height: 50px"
+          class="img-fluid rounded-circle m-0 b-0 p-0"
+          style="max-width: 30px; max-height: 30px"
         />
       </div>
-    </button>
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#">Profile</a></li>
-      <li><a class="dropdown-item" href="#">My jobs</a></li>
-      <li><a class="dropdown-item" href="#">Settings</a></li>
-    </ul>
+      <button
+        class="btn dropdown-toggle m-0 b-0 p-0"
+        type="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Tu
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Profile</a></li>
+        <li><a class="dropdown-item" href="#">My jobs</a></li>
+        <li><a class="dropdown-item" href="#">Settings</a></li>
+      </ul>
+    </div>
   </div>
 
   <div>
