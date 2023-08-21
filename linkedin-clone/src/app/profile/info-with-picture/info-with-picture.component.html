@@ -1,12 +1,12 @@
 <div class="container">
+  <img
+    src="{{ infoUser.image }}"
+    class="card-img-top w-25 rounded-circle p-2 bg-danger"
+    alt="..."
+  />
   <div class="row">
     <div *ngIf="infoUser" class="card col-8">
       <div class="card-body">
-        <img
-          src="{{ infoUser.image }}"
-          class="card-img-top w-25 rounded-circle p-2 bg-danger"
-          alt="..."
-        />
         <h3 class="card-title mx-3 mt-3">
           {{ infoUser.name + " " + infoUser.surname }}
         </h3>
