@@ -9,6 +9,7 @@ import { OnInit } from '@angular/core';
 })
 export class InfoWithPictureComponent {
   infoUser: any = [];
+  allUsers: any = [];
   constructor(private srv: ServiceFetchService) {}
 
   ngOnInit(): void {
@@ -16,6 +17,11 @@ export class InfoWithPictureComponent {
       // console.log(res);
       this.infoUser.push(res);
       console.log(this.infoUser);
+    });
+    this.srv.metodoPerGetAll().subscribe((resAll) => {
+      // console.log(res);
+      this.allUsers.push(resAll);
+      console.log(this.allUsers);
     });
   }
 }

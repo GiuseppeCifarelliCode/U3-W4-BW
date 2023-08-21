@@ -19,5 +19,10 @@ export class ServiceFetchService {
       headers: { Authorization: this.password },
     });
   }
+  metodoPerGetAll(): Observable<[]> {
+    return this.http.get<[]>(this.url, {
+      headers: { Authorization: this.password },
+    });
+  }
   //qui famo la fetch put
 }

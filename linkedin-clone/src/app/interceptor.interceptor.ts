@@ -6,20 +6,19 @@ import {
   HttpInterceptor,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable()
 export class InterceptorInterceptor implements HttpInterceptor {
   constructor() {}
+  password: string = environment.apiKey;
 
   intercept(
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
     let richiesta = request.clone({
-      headers: request.headers.append(
-        'Authorization',
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGUzMWU3MDFmMTc1YzAwMTRjNTU4ZGEiLCJpYXQiOjE2OTI2MDYwNjQsImV4cCI6MTY5MzgxNTY2NH0.UZ9ashWA8t7I8w9cDQnlF_Q8W5q1WbF6j-hpn-BsszU'
-      ),
+      headers: request.headers.append('Authorization', this.password),
     });
     return next.handle(richiesta);
   }
