@@ -1,26 +1,44 @@
 <div class="container">
   <div class="row">
-<div *ngIf="infoUser" class="card col-8">
-  <div class="card-body">
-    <h5 class="card-title">
-      {{ infoUser.name + " " + infoUser.surname }}
-    </h5>
-    <p class="card-text">
-      {{ infoUser.title }}
-    </p>
-  </div>
-  <img src="{{ infoUser.image }}" class="card-img-top" alt="..." />
+    <div *ngIf="infoUser" class="card col-8">
+      <div class="card-body">
+        <img
+          src="{{ infoUser.image }}"
+          class="card-img-top w-25 rounded-circle p-2 bg-danger"
+          alt="..."
+        />
+        <h3 class="card-title mx-3 mt-3">
+          {{ infoUser.name + " " + infoUser.surname }}
+        </h3>
+        <p class="card-text">
+          {{ infoUser.title }}
+        </p>
+      </div>
 
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">{{ infoUser.area }}</li>
-    <li class="list-group-item">{{ infoUser.bio }}</li>
-    <li class="list-group-item">{{ infoUser.username }}</li>
-  </ul>
-  <div class="card-body">
-    <a href="#" class="card-link">Disponibile per:</a>
-    <a href="#" class="card-link">Aggiungi sezione del profilo</a>
-    <a href="#" class="card-link">Altro</a>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{ infoUser.area }}</li>
+
+        <li class="list-group-item">{{ infoUser.bio }}</li>
+
+        <li class="list-group-item">{{ infoUser.username }}</li>
+      </ul>
+      <div class="card-body">
+        <a
+          href="#"
+          class="card-link btn btn-primary fw-bold btn-lg rounded-pill me-1"
+          >Disponibile per:</a
+        >
+        <a
+          href="#"
+          class="card-link btn btn-outline-primary rounded-pill fw-bold btn-lg me-1"
+          >Aggiungi sezione del profilo</a
+        >
+        <a
+          href="#"
+          class="card-link btn btn-outline-secondary fw-bold btn-lg rounded-pill"
+          >Altro</a
+        >
+      </div>
+    </div>
   </div>
-</div>
-</div>
 </div>
