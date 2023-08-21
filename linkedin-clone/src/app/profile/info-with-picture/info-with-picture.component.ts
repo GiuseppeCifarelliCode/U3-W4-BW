@@ -10,7 +10,7 @@ import { IProfile } from 'src/app/models/profile';
 })
 export class InfoWithPictureComponent {
   infoUser!:IProfile
-  allUsers: any = [];
+  allUsers!:IProfile[]
   constructor(private srv: ServiceFetchService) {}
 
   ngOnInit(): void {
@@ -21,7 +21,7 @@ export class InfoWithPictureComponent {
     });
     this.srv.metodoPerGetAll().subscribe((resAll) => {
       // console.log(res);
-      this.allUsers.push(resAll);
+      this.allUsers = resAll as IProfile[];
       console.log(this.allUsers);
     });
   }
