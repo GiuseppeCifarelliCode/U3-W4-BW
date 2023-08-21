@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row">
+  <div class="row row-cols-2">
 <div *ngIf="infoUser" class="card col-8">
   <div class="card-body">
     <h5 class="card-title">
@@ -9,7 +9,7 @@
       {{ infoUser.title }}
     </p>
   </div>
-  <img src="{{ infoUser.image }}" class="card-img-top" alt="..." />
+  <img src="{{ infoUser.image }}" class="card-img-top" alt="profile" />
 
   <ul class="list-group list-group-flush">
     <li class="list-group-item">{{ infoUser.area }}</li>
