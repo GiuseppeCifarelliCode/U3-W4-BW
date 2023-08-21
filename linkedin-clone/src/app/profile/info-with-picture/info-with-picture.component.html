@@ -1,11 +1,11 @@
-<div class="container">
+<div *ngIf="infoUser" class="container">
+  <div class="row">
+  <div class="d-flex flex-column col-8">
   <img
     src="{{ infoUser.image }}"
     class="card-img-top w-25 rounded-circle p-2 bg-danger"
     alt="..."
   />
-  <div class="row">
-    <div *ngIf="infoUser" class="card col-8">
       <div class="card-body">
         <h3 class="card-title mx-3 mt-3">
           {{ infoUser.name + " " + infoUser.surname }}
@@ -42,3 +42,4 @@
     </div>
   </div>
 </div>
+
