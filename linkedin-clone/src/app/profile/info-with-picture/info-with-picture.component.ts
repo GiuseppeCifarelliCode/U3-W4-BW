@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ServiceFetchService } from 'src/app/serviceFetch.service';
 import { OnInit } from '@angular/core';
+import { IProfile } from 'src/app/models/profile';
 
 @Component({
   selector: 'app-info-with-picture',
@@ -8,14 +9,14 @@ import { OnInit } from '@angular/core';
   styleUrls: ['./info-with-picture.component.scss'],
 })
 export class InfoWithPictureComponent {
-  infoUser: any = [];
+  infoUser!:IProfile
   allUsers: any = [];
   constructor(private srv: ServiceFetchService) {}
 
   ngOnInit(): void {
     this.srv.metodoPerGet().subscribe((res) => {
       // console.log(res);
-      this.infoUser.push(res);
+      this.infoUser = res as IProfile;
       console.log(this.infoUser);
     });
     this.srv.metodoPerGetAll().subscribe((resAll) => {
