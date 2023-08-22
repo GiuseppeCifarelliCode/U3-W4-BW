@@ -88,8 +88,10 @@ export class InfoWithPictureComponent {
   }
 
   delete(){
-    this.srv.deleteEsperienza(this.infoUser._id, this.arrayEsperienze[this.i]._id)
-    .subscribe()
-    this.getEsperienze()
+    this.srv.deleteEsperienza(
+      this.infoUser._id,
+      this.arrayEsperienze[this.i]._id
+      )
+      .subscribe(() => this.getEsperienze())
   }
 }
