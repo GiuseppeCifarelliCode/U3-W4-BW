@@ -8,8 +8,9 @@ import { AppComponent } from './app.component';
 import { AnalisiComponent } from './analisi/analisi.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NavbarComponent } from './components/header/navbar/navbar.component';
-import { InfoWithPictureComponent } from './components/profile/info-with-picture/info-with-picture.component';
 import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './pages/home/home.component';
+import { InfoWithPictureComponent } from './pages/profile/info-with-picture/info-with-picture.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     InfoWithPictureComponent,
     AnalisiComponent,
+    HomeComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
