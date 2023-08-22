@@ -1,48 +1,51 @@
 <div *ngIf="infoUser" class="container">
-  <div class="row border border-2 rounded-3">
+  <div class="row">
     <div class="d-flex flex-column col-8">
       <!--Img profilo-->
-      <img
-        src="{{ infoUser.image }}"
-        class="card-img-top w-25 rounded-circle p-2 bg-danger"
-        alt="..."
-      />
-      <!--Dati profilo-->
-      <div class="card-body d-flex flex-column align-items-baseline">
-        <h3 class="card-title mx-3 mt-3">
-          {{ infoUser.name + " " + infoUser.surname }}
-        </h3>
-        <p class="card-text">
-          {{ infoUser.title }}
-        </p>
+      <div class="border border-2 rounded-3 mb-2 p-4">
+        <img
+          src="{{ infoUser.image }}"
+          class="card-img-top w-25 rounded-circle p-2 bg-dark"
+          alt="..."
+        />
+        <!--Dati profilo-->
+        <div class="card-body d-flex flex-column align-items-baseline">
+          <h3 class="card-title mx-3 mt-3">
+            {{ infoUser.name + " " + infoUser.surname }}
+          </h3>
+          <p class="card-text">
+            {{ infoUser.title }}
+          </p>
+        </div>
+
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item border border-0">{{ infoUser.area }}</li>
+
+          <li class="list-group-item border border-0">{{ infoUser.bio }}</li>
+
+          <li class="list-group-item border border-0">
+            {{ infoUser.username }}
+          </li>
+        </ul>
+        <!--Bottoni-->
+        <div class="card-body">
+          <a
+            href="#"
+            class="card-button card-link btn btn-primary fw-bold btn-lg rounded-pill me-1"
+            >Disponibile per:</a
+          >
+          <a
+            href="#"
+            class="card-button card-link btn btn-outline-primary rounded-pill fw-bold btn-lg me-1"
+            >Aggiungi sezione del profilo</a
+          >
+          <a
+            href="#"
+            class="card-button card-link btn btn-outline-secondary fw-bold btn-lg rounded-pill"
+            >Altro</a
+          >
+        </div>
       </div>
-
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item border border-0">{{ infoUser.area }}</li>
-
-        <li class="list-group-item border border-0">{{ infoUser.bio }}</li>
-
-        <li class="list-group-item border border-0">{{ infoUser.username }}</li>
-      </ul>
-      <!--Bottoni-->
-      <div class="card-body">
-        <a
-          href="#"
-          class="card-button card-link btn btn-primary fw-bold btn-lg rounded-pill me-1"
-          >Disponibile per:</a
-        >
-        <a
-          href="#"
-          class="card-button card-link btn btn-outline-primary rounded-pill fw-bold btn-lg me-1"
-          >Aggiungi sezione del profilo</a
-        >
-        <a
-          href="#"
-          class="card-button card-link btn btn-outline-secondary fw-bold btn-lg rounded-pill"
-          >Altro</a
-        >
-      </div>
-
       <app-analisi></app-analisi>
       <div
         class="card-body d-flex justify-content-between align-items-baseline"
