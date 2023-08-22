@@ -56,16 +56,14 @@ export class InfoWithPictureComponent {
     //parte la post
     this.srv.postEsperienza(this.infoUser._id, this.formData)
     .subscribe(res => this.arrayEsperienze.push(res as FullExperiences)
-
     )
-
   }
   //metodo per put esperienza  manca di fare un interfaccia con le esperienze e un array
-  modify() {
-    this.srv.putEsperienza(
-      this.infoUser._id,
-      this.arrayEsperienze._id,
-      this.arrayEsperienze
-    );
-  }
+  // modify() {
+  //   this.srv.putEsperienza(
+  //     this.infoUser._id,
+  //     this.arrayEsperienze._id,
+  //     this.arrayEsperienze
+  //   );
+  // }
 }
