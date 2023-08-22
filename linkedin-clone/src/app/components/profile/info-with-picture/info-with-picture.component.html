@@ -89,18 +89,24 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save</button>
+        <button (click)="save()" type="button" class="btn btn-primary">Save</button>
       </div>
     </div>
   </div>
 </div>
 
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">{{ infoUser.area }}</li>
+    <ul *ngFor="let experience of arrayEsperienze" class="list-group list-group-flush border-bottom border-black">
+      <li class="list-group-item"><span class="fw-bold"> Role:</span> {{ experience.role }}</li>
 
-      <li class="list-group-item">{{ infoUser.bio }}</li>
+      <li class="list-group-item"><span class="fw-bold">Company:</span> {{ experience.company }}</li>
 
-      <li class="list-group-item">{{ infoUser.username }}</li>
+      <li class="list-group-item"><span class="fw-bold">Description:</span> {{ experience.description }}</li>
+
+      <li class="list-group-item"><span class="fw-bold"> Start:</span> {{ experience.startDate }}</li>
+
+      <li class="list-group-item"><span class="fw-bold"> End:</span> {{ experience.endDate }}</li>
+
+      <li class="list-group-item"><span class="fw-bold"> Area:</span> {{ experience.area }}</li>
     </ul>
 
   </div>
