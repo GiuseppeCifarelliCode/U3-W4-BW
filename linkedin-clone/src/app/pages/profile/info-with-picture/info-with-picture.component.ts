@@ -64,6 +64,11 @@ export class InfoWithPictureComponent {
   }
   //metodo per put esperienza  manca di fare un interfaccia con le esperienze e un array
 
+  resetExperienceList(){
+    if(this.saveModify === 'Save Changes')
+    this.getEsperienze()
+  }
+
   resetTextButton(){
     this.saveModify = 'Save'
     this.formData = {
@@ -74,7 +79,6 @@ export class InfoWithPictureComponent {
       description: '',
       area: '',
     }
-    this.getEsperienze()
   }
 
   textModify(index:number){
