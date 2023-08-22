@@ -4,6 +4,7 @@ import { OnInit } from '@angular/core';
 import { IProfile } from 'src/app/models/profile';
 import { IExperience } from 'src/app/models/experience';
 import { FullExperiences } from 'src/app/models/full-experiences';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-info-with-picture',
@@ -71,8 +72,13 @@ export class InfoWithPictureComponent {
       this.infoUser._id,
       expId,
       this.formData
-    ).subscribe(res => this.arrayEsperienze[i] = res as FullExperiences
+    ).subscribe(res => {
+      this.arrayEsperienze[i] = res as FullExperiences
+      this.saveModify = 'Save'
+      console.log(this.arrayEsperienze);
+
+    }
     )
-    this.saveModify = "Save"
+
   }
 }
