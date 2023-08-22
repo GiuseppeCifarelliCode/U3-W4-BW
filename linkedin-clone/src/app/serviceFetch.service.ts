@@ -61,9 +61,9 @@ export class ServiceFetchService {
     );
   }
   // put esperienza per modifica
-  putEsperienza(id: string, expId: string, postData: FullExperiences) {
+  putEsperienza(id: string, expId: string, postData: IExperience) {
     return this.http.put(
-      this.url + { id } + '/experiences/' + { expId },
+      this.url + id + '/experiences/' + expId, postData,
       {
         headers: { Authorization: this.password },
       }

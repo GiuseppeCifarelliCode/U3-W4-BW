@@ -22,6 +22,8 @@ export class InfoWithPictureComponent {
     area: '',
   };
   arrayEsperienze: FullExperiences[] = [];
+  saveModify:string = "Save"
+  i!:number
 
   constructor(private srv: ServiceFetchService) {}
 
@@ -38,10 +40,6 @@ export class InfoWithPictureComponent {
       this.allUsers = resAll as IProfile[];
       console.log(this.allUsers);
     });
-    //qui sotto tentativo di chiamata per tutte espeirenze da cancellare perché il metodo completo èquelllo sotto
-    this.srv.getEsperienze(this.infoUser._id).subscribe((resAll) => {
-      console.log(resAll);
-    });
   }
 
   //metodo gìper get tutte espeirnze
@@ -52,18 +50,29 @@ export class InfoWithPictureComponent {
     });
   }
   //metodo per post esperienza
-  save() {
+  save(expId?:string, i?:number) {
+    if(this.saveModify === 'Save'){
     //parte la post
     this.srv.postEsperienza(this.infoUser._id, this.formData)
     .subscribe(res => this.arrayEsperienze.push(res as FullExperiences)
-    )
+    )}
+    else this.modify(this.arrayEsperienze[this.i]._id, this.i)
   }
   //metodo per put esperienza  manca di fare un interfaccia con le esperienze e un array
-  // modify() {
-  //   this.srv.putEsperienza(
-  //     this.infoUser._id,
-  //     this.arrayEsperienze._id,
-  //     this.arrayEsperienze
-  //   );
-  // }
+
+  textModify(index:number){
+    this.saveModify = 'Save Changes'
+    this.i = index
+
+  }
+
+  modify(expId:string, i:number) {
+    this.srv.putEsperienza(
+      this.infoUser._id,
+      expId,
+      this.formData
+    ).subscribe(res => this.arrayEsperienze[i] = res as FullExperiences
+    )
+    this.saveModify = "Save"
+  }
 }
