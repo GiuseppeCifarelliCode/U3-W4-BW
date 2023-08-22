@@ -4,7 +4,8 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpHeaders } from '@angular/common/http';
 import { IProfile } from './models/profile';
-import { Experiences } from './models/experiences';
+import { IExperience } from './models/experience';
+import { FullExperiences } from './models/full-experiences';
 @Injectable({
   providedIn: 'root',
 })
@@ -51,16 +52,21 @@ export class ServiceFetchService {
     );
   }
   //aggiungere una nuova esperienza
-  putEsperienza(id: string, postData: Experiences) {
-    return this.http.put(
+  postEsperienza(id: string, postData: IExperience) {
+    return this.http.post(
       'api.herokuapp.com/api/profile/' + { id } + '/experiences',
-      {
-        headers: { Authorization: this.password },
-      },
       {
         headers: { Authorization: this.password },
       }
     );
   }
-  //
+  // put esperienza per modifica
+  putEsperienza(id: string, expId: string, postData: FullExperiences) {
+    return this.http.put(
+      'api.herokuapp.com/api/profile/' + { id } + '/experiences/' + { expId },
+      {
+        headers: { Authorization: this.password },
+      }
+    );
+  }
 }
