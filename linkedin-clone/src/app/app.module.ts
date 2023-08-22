@@ -4,9 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { NavbarComponent } from './header/navbar/navbar.component';
-import { InfoWithPictureComponent } from './profile/info-with-picture/info-with-picture.component';
+import { HeaderComponent } from './components/header/header.component';
+import { NavbarComponent } from './components/header/navbar/navbar.component';
+import { InfoWithPictureComponent } from './components/profile/info-with-picture/info-with-picture.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,11 @@ import { InfoWithPictureComponent } from './profile/info-with-picture/info-with-
     NavbarComponent,
     InfoWithPictureComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
