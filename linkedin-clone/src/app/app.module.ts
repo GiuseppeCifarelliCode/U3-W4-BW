@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { NavbarComponent } from './header/navbar/navbar.component';
 import { InfoWithPictureComponent } from './profile/info-with-picture/info-with-picture.component';
+import { AnalisiComponent } from './analisi/analisi.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { InfoWithPictureComponent } from './profile/info-with-picture/info-with-
     HeaderComponent,
     NavbarComponent,
     InfoWithPictureComponent,
+    AnalisiComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
