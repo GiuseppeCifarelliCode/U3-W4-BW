@@ -45,7 +45,7 @@ export class ServiceFetchService {
   //get tutte esprienze
   getEsperienze(id: string) {
     return this.http.get<[]>(
-      this.url + { id } + '/experiences',
+      this.url + id  + '/experiences',
       {
         headers: { Authorization: this.password },
       }
