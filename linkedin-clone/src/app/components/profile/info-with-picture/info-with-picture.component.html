@@ -156,7 +156,16 @@
             </form>
           </div>
           <div class="modal-footer">
+            <button *ngIf="saveModify!== 'Save'"
+              (click)="delete()"
+              type="button"
+              class="btn btn-danger"
+              data-bs-dismiss="modal"
+            >
+              Delete
+            </button>
             <button
+            (click)="resetTextButton()"
               type="button"
               class="btn btn-secondary"
               data-bs-dismiss="modal"
@@ -164,7 +173,7 @@
               Close
             </button>
             <button
-              (click)="save()"
+            (click)="save()"
               type="button"
               class="btn btn-primary"
               data-bs-dismiss="modal"

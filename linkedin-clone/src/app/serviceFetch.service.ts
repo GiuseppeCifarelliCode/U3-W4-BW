@@ -69,4 +69,13 @@ export class ServiceFetchService {
       }
     );
   }
+
+  deleteEsperienza(id:string, expId:string ){
+    return this.http.delete(
+      this.url + id + '/experiences/' + expId,
+      {
+        headers: { Authorization: this.password },
+      }
+    );
+  }
 }

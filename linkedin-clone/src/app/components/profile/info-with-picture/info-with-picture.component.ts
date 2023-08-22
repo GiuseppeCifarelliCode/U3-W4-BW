@@ -33,6 +33,7 @@ export class InfoWithPictureComponent {
     this.srv.metodoPerGet().subscribe((res) => {
       // console.log(res);
       this.infoUser = res as IProfile;
+      this.getEsperienze()
       console.log(this.infoUser);
     });
     //questa è la get di tutti i profili
@@ -46,7 +47,9 @@ export class InfoWithPictureComponent {
   //metodo gìper get tutte espeirnze
 
   getEsperienze() {
+    this.arrayEsperienze = []
     this.srv.getEsperienze(this.infoUser._id).subscribe((resAll) => {
+      this.arrayEsperienze = resAll
       console.log(resAll);
     });
   }
@@ -60,6 +63,10 @@ export class InfoWithPictureComponent {
     else this.modify(this.arrayEsperienze[this.i]._id, this.i)
   }
   //metodo per put esperienza  manca di fare un interfaccia con le esperienze e un array
+
+  resetTextButton(){
+    this.saveModify = 'Save'
+  }
 
   textModify(index:number){
     this.saveModify = 'Save Changes'
@@ -75,10 +82,14 @@ export class InfoWithPictureComponent {
     ).subscribe(res => {
       this.arrayEsperienze[i] = res as FullExperiences
       this.saveModify = 'Save'
-      console.log(this.arrayEsperienze);
+      this.getEsperienze()
 
-    }
-    )
+    })
+  }
 
+  delete(){
+    this.srv.deleteEsperienza(this.infoUser._id, this.arrayEsperienze[this.i]._id)
+    .subscribe()
+    this.getEsperienze()
   }
 }
