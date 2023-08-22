@@ -38,6 +38,18 @@ export class InfoWithPictureComponent {
       this.allUsers = resAll as IProfile[];
       console.log(this.allUsers);
     });
+    //qui sotto tentativo di chiamata per tutte espeirenze da cancellare perché il metodo completo èquelllo sotto
+    this.srv.getEsperienze(this.infoUser._id).subscribe((resAll) => {
+      console.log(resAll);
+    });
+  }
+
+  //metodo gìper get tutte espeirnze
+
+  getEsperienze() {
+    this.srv.getEsperienze(this.infoUser._id).subscribe((resAll) => {
+      console.log(resAll);
+    });
   }
   //metodo per post esperienza
   save() {
@@ -49,7 +61,11 @@ export class InfoWithPictureComponent {
 
   }
   //metodo per put esperienza  manca di fare un interfaccia con le esperienze e un array
-  // modify(){
-  //   this.srv.putEsperienza(this.infoUser._id,this., this.)
-  // }
+  modify() {
+    this.srv.putEsperienza(
+      this.infoUser._id,
+      this.arrayEsperienze._id,
+      this.arrayEsperienze
+    );
+  }
 }
