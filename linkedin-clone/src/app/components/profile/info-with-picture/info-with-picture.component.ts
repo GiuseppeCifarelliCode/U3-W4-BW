@@ -21,7 +21,7 @@ export class InfoWithPictureComponent {
     description: '',
     area: '',
   };
-  arrayEsperienze:FullExperiences[] = []
+  arrayEsperienze: FullExperiences[] = [];
 
   constructor(private srv: ServiceFetchService) {}
 
