@@ -66,11 +66,21 @@ export class InfoWithPictureComponent {
 
   resetTextButton(){
     this.saveModify = 'Save'
+    this.formData = {
+      role: '',
+      company: '',
+      startDate: '',
+      endDate: '',
+      description: '',
+      area: '',
+    }
+    this.getEsperienze()
   }
 
   textModify(index:number){
     this.saveModify = 'Save Changes'
     this.i = index
+    this.formData = this.arrayEsperienze[this.i]
 
   }
 
