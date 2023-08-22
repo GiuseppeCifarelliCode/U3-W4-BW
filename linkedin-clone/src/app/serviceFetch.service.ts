@@ -75,6 +75,7 @@ export class ServiceFetchService {
       this.url + id + '/experiences/' + expId,
       {
         headers: { Authorization: this.password },
+        responseType: 'text'
       }
     );
   }
