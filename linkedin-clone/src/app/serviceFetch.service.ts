@@ -45,7 +45,7 @@ export class ServiceFetchService {
   //get tutte esprienze
   getEsperienze(id: string) {
     return this.http.get<[]>(
-      'api.herokuapp.com/api/profile/' + { id } + '/experiences',
+      this.url + { id } + '/experiences',
       {
         headers: { Authorization: this.password },
       }
@@ -54,16 +54,16 @@ export class ServiceFetchService {
   //aggiungere una nuova esperienza
   postEsperienza(id: string, postData: IExperience) {
     return this.http.post(
-      'api.herokuapp.com/api/profile/' + { id } + '/experiences',
+      this.url +  id + '/experiences', postData,
       {
         headers: { Authorization: this.password },
       }
     );
   }
   // put esperienza per modifica
-  putEsperienza(id: string, expId: string, postData: FullExperiences) {
+  putEsperienza(id: string, expId: string, postData: IExperience) {
     return this.http.put(
-      'api.herokuapp.com/api/profile/' + { id } + '/experiences/' + { expId },
+      this.url + id + '/experiences/' + expId, postData,
       {
         headers: { Authorization: this.password },
       }
