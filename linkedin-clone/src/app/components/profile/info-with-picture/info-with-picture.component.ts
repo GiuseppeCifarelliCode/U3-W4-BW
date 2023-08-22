@@ -21,7 +21,7 @@ export class InfoWithPictureComponent {
     description: '',
     area: '',
   };
-  arrayEsperienze:FullExperiences[] = []
+  arrayEsperienze: FullExperiences[] = [];
 
   constructor(private srv: ServiceFetchService) {}
 
@@ -54,18 +54,17 @@ export class InfoWithPictureComponent {
   //metodo per post esperienza
   save() {
     //parte la post
-    this.srv.postEsperienza(this.infoUser._id, this.formData)
-    .subscribe(res => this.arrayEsperienze.push(res as FullExperiences)
-
-    )
-
+    this.srv
+      .postEsperienza(this.infoUser._id, this.formData)
+      .subscribe((res) => this.arrayEsperienze.push(res as FullExperiences));
   }
   //metodo per put esperienza  manca di fare un interfaccia con le esperienze e un array
-  modify() {
+  /* modify() {
     this.srv.putEsperienza(
       this.infoUser._id,
       this.arrayEsperienze._id,
       this.arrayEsperienze
     );
   }
+  */
 }
