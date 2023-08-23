@@ -231,12 +231,18 @@
         class="card-body d-flex justify-content-between align-items-baseline"
       >
       <h3 class="card-title mx-3 mt-3">Attività</h3>
-      <button class="btn btn-primary">Crea Post</button>
+                <input
+                  placeholder="Scrivi un post"
+                  id="newPost"
+                  name="newPost"
+                  [(ngModel)]="newPost.text"
+                />
+      <button (click)="savePost()" class="btn btn-primary">Crea Post</button>
   </div>
   <ul *ngIf="post" class="list-group list-group-flush border-bottom border-black"
 >
   <li class="list-group-item d-flex justify-content-between">
-    <div><span class="fw-bold"> Published by: </span>{{post.user.name}} {{post.user.surname}}</div>
+    <div><span class="fw-bold"> Published by: </span>{{post.username}} </div>
   </li>
 
   <li class="list-group-item">

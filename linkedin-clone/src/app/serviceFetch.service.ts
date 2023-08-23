@@ -6,6 +6,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { IProfile } from './models/profile';
 import { IExperience } from './models/experience';
 import { FullExperiences } from './models/full-experiences';
+import { IPost } from './models/post';
 @Injectable({
   providedIn: 'root',
 })
@@ -84,6 +85,15 @@ export class ServiceFetchService {
   getPosts() {
     return this.http.get<[]>(
       this.postUrl,
+      {
+        headers: { Authorization: this.password },
+      }
+    );
+  }
+
+  postPost(data:IPost) {
+    return this.http.post(
+      this.postUrl, data,
       {
         headers: { Authorization: this.password },
       }

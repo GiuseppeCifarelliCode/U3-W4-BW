@@ -27,6 +27,14 @@ export class InfoWithPictureComponent {
   saveModify:string = "Save"
   i!:number
   post!:IPost
+  newPost:IPost = {
+    text: '',
+    username: '',
+    createdAt: '',
+    updatedAt: '',
+    _v: 0
+  }
+
 
   constructor(private srv: ServiceFetchService) {}
 
@@ -114,5 +122,9 @@ export class InfoWithPictureComponent {
       this.arrayEsperienze[this.i]._id
       )
       .subscribe(() => this.getEsperienze())
+  }
+
+  savePost(){
+    this.srv.postPost(this.newPost).subscribe(res => this.post = res as IPost)
   }
 }
