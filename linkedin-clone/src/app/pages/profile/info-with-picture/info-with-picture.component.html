@@ -219,10 +219,10 @@
       {{ experience.description }}
     </li>
     <li class="list-group-item">
-      <span class="fw-bold">Start:</span> {{ experience.startDate }}
+      <span class="fw-bold">Start:</span> {{ experience.startDate | date:'longDate' }}
     </li>
     <li class="list-group-item">
-      <span class="fw-bold">End:</span> {{ experience.endDate }}
+      <span class="fw-bold">End:</span> {{ experience.endDate | date:'longDate' }}
     </li>
   </ul>
 </div>

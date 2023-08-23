@@ -5,6 +5,7 @@ import { IProfile } from 'src/app/models/profile';
 import { IExperience } from 'src/app/models/experience';
 import { FullExperiences } from 'src/app/models/full-experiences';
 import { map } from 'rxjs';
+import { IPost } from 'src/app/models/post';
 
 @Component({
   selector: 'app-info-with-picture',
@@ -25,6 +26,7 @@ export class InfoWithPictureComponent {
   arrayEsperienze: FullExperiences[] = [];
   saveModify:string = "Save"
   i!:number
+  post!:IPost
 
   constructor(private srv: ServiceFetchService) {}
 
@@ -42,6 +44,11 @@ export class InfoWithPictureComponent {
       this.allUsers = resAll as IProfile[];
       console.log(this.allUsers);
     });
+
+    this.srv.getPosts().subscribe(res => {
+      this.post = res[res.length-1]
+    console.log(this.post);
+    })
   }
 
   //metodo gìper get tutte espeirnze

@@ -13,6 +13,7 @@ export class ServiceFetchService {
   // userId:
   password: string = environment.apiKey;
   url: string = 'https://striveschool-api.herokuapp.com/api/profile/';
+  postUrl:string = 'https://striveschool-api.herokuapp.com/api/posts/'
   constructor(private http: HttpClient) {}
   //qui famo la fetch get
   //possiamo dare id come parametro della get
@@ -52,18 +53,18 @@ export class ServiceFetchService {
     );
   }
   //aggiungere una nuova esperienza
-  postEsperienza(id: string, postData: IExperience) {
+  postEsperienza(id: string, data: IExperience) {
     return this.http.post(
-      this.url +  id + '/experiences', postData,
+      this.url +  id + '/experiences', data,
       {
         headers: { Authorization: this.password },
       }
     );
   }
   // put esperienza per modifica
-  putEsperienza(id: string, expId: string, postData: IExperience) {
+  putEsperienza(id: string, expId: string, data: IExperience) {
     return this.http.put(
-      this.url + id + '/experiences/' + expId, postData,
+      this.url + id + '/experiences/' + expId, data,
       {
         headers: { Authorization: this.password },
       }
@@ -76,6 +77,15 @@ export class ServiceFetchService {
       {
         headers: { Authorization: this.password },
         responseType: 'text'
+      }
+    );
+  }
+
+  getPosts() {
+    return this.http.get<[]>(
+      this.postUrl,
+      {
+        headers: { Authorization: this.password },
       }
     );
   }
