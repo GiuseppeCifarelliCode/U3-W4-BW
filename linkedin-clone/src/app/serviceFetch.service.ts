@@ -97,15 +97,14 @@ export class ServiceFetchService {
     });
   }
 
-  getComment() {
-    return this.http.get<[]>(this.commentUrl, {
+  getComment(id: string) {
+    return this.http.get<[]>(this.commentUrl + id, {
       headers: { Authorization: this.passwordComments },
     });
   }
-  postComment(contenuto: Comments) {
-    return this.http.post(this.commentUrl, {
+  postComment(id: string, contenuto: Comments) {
+    return this.http.post(this.commentUrl, contenuto, {
       headers: { Authorization: this.passwordComments },
-      contenuto,
     });
   }
 }

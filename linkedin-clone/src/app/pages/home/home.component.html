@@ -27,24 +27,31 @@
                 [attr.data-bs-target]="'#collapseExample' + i"
                 aria-expanded="false"
                 aria-controls="collapseExample"
+                (click)="getCommenti(post._id)"
               >
                 Commenti
               </button>
             </p>
-            <div class="collapse" id="collapseExample{{i}}">
-              <div class="card card-body">
-                {{ comments[i].comment }}
+            <div class="collapse" id="collapseExample{{ i }}">
+              <div *ngFor="let commento of comments" class="card card-body">
+                {{ commento.comment }}
               </div>
               <!-- Questo ngmodel sotto è per l'input, senza funziona,con spacca tutto -->
 
               <input
-              [(ngModel)]="newComment.comment"
+                [(ngModel)]="newComment.comment"
                 placeholder="Scrivi un commento"
                 type="text"
                 class="my-2"
               />
 
-              <button class="btn btn-primary" type="button">Pubblica</button>
+              <button
+                (click)="addComment(post._id, newComment)"
+                class="btn btn-primary"
+                type="button"
+              >
+                Pubblica
+              </button>
 
               <!-- modale per aggiungere commento -->
             </div>

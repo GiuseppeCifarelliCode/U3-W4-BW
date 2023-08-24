@@ -3,7 +3,8 @@ export interface IPostForHome {
   username: string;
   createdAt: string;
   updatedAt: string;
-  _v: number;
+  _id: string;
+  __v: number;
   user: {
     area: string;
     bio: string;
