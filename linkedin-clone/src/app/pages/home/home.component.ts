@@ -1,10 +1,44 @@
-import { Component } from '@angular/core';
+import { Comments } from './../../models/comments';
+import { IPostForHome } from './../../models/postForHome';
+import { Component, OnInit } from '@angular/core';
+import { ServiceFetchService } from 'src/app/serviceFetch.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
+  posts!: IPostForHome[];
+  comments!: Comments[];
+  addedComment!: Comments;
+  newComment: Comments[] = [
+    {
+      comment: '',
+      rate: '3',
+      elementId: '',
+    },
+  ];
 
+  constructor(private srv: ServiceFetchService) {}
+  ngOnInit(): void {
+    //prendo posts
+    this.srv.getPosts().subscribe((res) => {
+      this.posts = res.reverse();
+      this.posts = this.posts.slice(0, 55);
+      console.log(this.posts);
+    });
+    //prendo commenti
+    this.srv.getComment().subscribe((res) => {
+      this.comments = res.reverse();
+      this.comments = this.comments.slice(0, 55);
+      console.log(this.comments);
+    });
+  }
+  //creo commento
+  addComment(i: number) {
+    this.srv.postComment(this.newComment[i]).subscribe((res) => {
+      this.addedComment = res as Comments;
+    });
+  }
 }

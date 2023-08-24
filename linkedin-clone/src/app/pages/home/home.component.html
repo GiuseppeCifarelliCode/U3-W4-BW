@@ -1,1 +1,56 @@
-<p>home works!</p>
+<div class="container mt-2">
+  <!-- Qui sezione aside sinistra -->
+  <!-- qui sezione feed notizie -->
+  <div class="row">
+    <div
+      *ngFor="let post of posts; let i = index"
+      class="d-flex flex-column col-8"
+    >
+      <div class="border border-2 rounded-3 mb-2 p-4">
+        <!-- creazione dinamica card post -->
+        <div *ngIf="posts" class="card" style="width: 18rem">
+          <div class="card-body">
+            <h5 class="card-title">
+              {{ post.user.name }} {{ post.user.surname }} 1°
+            </h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">
+              {{ post.user.bio }}
+            </h6>
+            <p class="card-text">{{ post.createdAt | date : "longDate" }}</p>
+            <hr />
+            <p class="d-inline-flex gap-1">
+              <button
+                class="btn btn-primary"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseExample"
+                aria-expanded="false"
+                aria-controls="collapseExample"
+              >
+                Commenti
+              </button>
+            </p>
+            <div class="collapse" id="collapseExample">
+              <div class="card card-body">
+                {{ comments[i].comment }}
+              </div>
+              <!-- Questo ngmodel sotto è per l'input, senza funziona,con spacca tutto -->
+              [(ngModel)]="newComment[i].comment"
+              <input
+                placeholder="Scrivi un commento"
+                type="text"
+                class="my-2"
+              />
+
+              <button class="btn btn-primary" type="button">Pubblica</button>
+
+              <!-- modale per aggiungere commento -->
+            </div>
+
+            <!-- qui sezione aside destra -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
