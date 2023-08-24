@@ -1,3 +1,4 @@
+import { Comments } from './models/comments';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -13,8 +14,10 @@ import { IPost } from './models/post';
 export class ServiceFetchService {
   // userId:
   password: string = environment.apiKey;
+  passwordComments: string = environment.apiCommentKey;
   url: string = 'https://striveschool-api.herokuapp.com/api/profile/';
   postUrl: string = 'https://striveschool-api.herokuapp.com/api/posts/';
+  commentUrl: string = 'https://striveschool-api.herokuapp.com/api/comments/';
   constructor(private http: HttpClient) {}
   //qui famo la fetch get
   //possiamo dare id come parametro della get
@@ -91,6 +94,18 @@ export class ServiceFetchService {
     return this.http.delete(this.url + id + '/posts/' + postId, {
       headers: { Authorization: this.password },
       responseType: 'text',
+    });
+  }
+
+  getComment() {
+    return this.http.get<[]>(this.commentUrl, {
+      headers: { Authorization: this.passwordComments },
+    });
+  }
+  postComment(contenuto: Comments) {
+    return this.http.post(this.commentUrl, {
+      headers: { Authorization: this.passwordComments },
+      contenuto,
     });
   }
 }
