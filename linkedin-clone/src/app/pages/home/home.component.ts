@@ -2,6 +2,7 @@ import { Comments } from './../../models/comments';
 import { IPostForHome } from './../../models/postForHome';
 import { Component, OnInit } from '@angular/core';
 import { ServiceFetchService } from 'src/app/serviceFetch.service';
+import { CommentComplete } from 'src/app/models/CommentComplete';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,7 @@ import { ServiceFetchService } from 'src/app/serviceFetch.service';
 })
 export class HomeComponent {
   posts!: IPostForHome[];
-  comments!: Comments[];
+  comments!: CommentComplete[];
   addedComment!: Comments;
   newComment: Comments = {
     comment: '',
@@ -41,6 +42,11 @@ export class HomeComponent {
     this.newComment.elementId = id;
     this.srv.postComment(id, data).subscribe((res) => {
       this.addedComment = res as Comments;
+      this.getCommenti(id);
+    });
+  }
+  deleteComment(id: string) {
+    this.srv.deleteComment(id).subscribe(() => {
       this.getCommenti(id);
     });
   }
