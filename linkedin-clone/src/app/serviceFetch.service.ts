@@ -107,4 +107,9 @@ export class ServiceFetchService {
       headers: { Authorization: this.passwordComments },
     });
   }
+  deleteComment(id: string) {
+    return this.http.delete(this.commentUrl + id, {
+      headers: { Authorization: this.passwordComments },
+    });
+  }
 }

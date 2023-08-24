@@ -35,6 +35,14 @@
             <div class="collapse" id="collapseExample{{ i }}">
               <div *ngFor="let commento of comments" class="card card-body">
                 {{ commento.comment }}
+                <button
+                  *ngIf="commento.author === post.user.username"
+                  (click)="deleteComment(commento._id)"
+                  class="btn btn-danger"
+                  type="button"
+                >
+                  Rimuovi
+                </button>
               </div>
               <!-- Questo ngmodel sotto è per l'input, senza funziona,con spacca tutto -->
 
