@@ -16,6 +16,7 @@
             <h6 class="card-subtitle mb-2 text-body-secondary">
               {{ post.user.bio }}
             </h6>
+            <p class="card-text">{{ post.text }}</p>
             <p class="card-text">{{ post.createdAt | date : "longDate" }}</p>
             <hr />
             <p class="d-inline-flex gap-1">
@@ -23,20 +24,21 @@
                 class="btn btn-primary"
                 type="button"
                 data-bs-toggle="collapse"
-                data-bs-target="#collapseExample"
+                [attr.data-bs-target]="'#collapseExample' + i"
                 aria-expanded="false"
                 aria-controls="collapseExample"
               >
                 Commenti
               </button>
             </p>
-            <div class="collapse" id="collapseExample">
+            <div class="collapse" id="collapseExample{{i}}">
               <div class="card card-body">
                 {{ comments[i].comment }}
               </div>
               <!-- Questo ngmodel sotto è per l'input, senza funziona,con spacca tutto -->
-              [(ngModel)]="newComment[i].comment"
+
               <input
+              [(ngModel)]="newComment.comment"
                 placeholder="Scrivi un commento"
                 type="text"
                 class="my-2"

@@ -12,13 +12,13 @@ export class HomeComponent {
   posts!: IPostForHome[];
   comments!: Comments[];
   addedComment!: Comments;
-  newComment: Comments[] = [
+  newComment: Comments =
     {
       comment: '',
       rate: '3',
       elementId: '',
-    },
-  ];
+    }
+  ;
 
   constructor(private srv: ServiceFetchService) {}
   ngOnInit(): void {
@@ -37,7 +37,7 @@ export class HomeComponent {
   }
   //creo commento
   addComment(i: number) {
-    this.srv.postComment(this.newComment[i]).subscribe((res) => {
+    this.srv.postComment(this.newComment).subscribe((res) => {
       this.addedComment = res as Comments;
     });
   }
