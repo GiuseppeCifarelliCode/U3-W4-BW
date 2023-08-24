@@ -1,13 +1,21 @@
+<<<<<<< Updated upstream
 import { Comments } from './models/comments';
+=======
+import { IProfile } from 'src/app/models/profile';
+>>>>>>> Stashed changes
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpHeaders } from '@angular/common/http';
+<<<<<<< Updated upstream
 import { IProfile } from './models/profile';
 import { IExperience } from './models/experience';
 import { FullExperiences } from './models/full-experiences';
 import { IPost } from './models/post';
+=======
+
+>>>>>>> Stashed changes
 @Injectable({
   providedIn: 'root',
 })
@@ -22,10 +30,15 @@ export class ServiceFetchService {
   //qui famo la fetch get
   //possiamo dare id come parametro della get
 
+<<<<<<< Updated upstream
   //crud per profilo
   //get profilo me
   metodoPerGet() {
     return this.http.get(this.url + 'me', {
+=======
+  metodoPerGet(): Observable<IProfile[]> {
+    return this.http.get<[]>(this.url + 'me', {
+>>>>>>> Stashed changes
       headers: { Authorization: this.password },
     });
   }
