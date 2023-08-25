@@ -16,14 +16,18 @@
           <ul>
             <li class="singleLi">
               <div class="singleNews">
-                <h6 class="newsTitle text-start">L'IA ci ruberà il lavoro?</h6>
+                <h6 class="newsTitle text-start">
+                  L'IA ci ruberà il lavoro? Speriamo di no altrimenti siamo
+                  rivinati
+                </h6>
                 <p class="text-secondary ms-2 text-start">23 ore fa</p>
               </div>
             </li>
             <li class="singleLi">
               <div class="singleNews">
                 <h6 class="newsTitle text-start">
-                  Facciamo bene ad affidarci completamente a VSCode?
+                  Facciamo bene ad affidarci completamente a VSCode? Boh, è
+                  l'unico che conosciamo.
                 </h6>
                 <p class="text-secondary ms-2 text-start">
                   1 giorno fa • 300 lettori
@@ -86,15 +90,13 @@
       </div>
     </div>
     <div class="d-flex flex-column col col-lg-8">
-      <h1 class="text-center">HOME</h1>
       <div class="d-flex justify-content-center">
-      <div *ngIf="!posts" class="spinner-border text-primary" role="status">
-        <span class="visually-hidden">Loading...</span>
+        <div *ngIf="!posts" class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
       </div>
-    </div>
       <div *ngFor="let post of posts; let i = index">
         <!-- creazione dinamica card post -->
-        <h2 class="text-center mb-3">Post</h2>
         <div *ngIf="posts" class="card mb-3">
           <div class="card-body">
             <h5 class="card-title">
@@ -125,7 +127,7 @@
                   <span class="fw-bold">{{ commento.author }}</span>
                 </p>
                 <p>
-                  {{ commento.createdAt | date:'medium'}}
+                  {{ commento.createdAt | date : "medium" }}
                 </p>
                 {{ commento.comment }}
                 <button
