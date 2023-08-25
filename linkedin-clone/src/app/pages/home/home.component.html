@@ -33,9 +33,10 @@
           </p>
           <div class="collapse" id="collapseExample{{ i }}">
             <div *ngFor="let commento of comments" class="card card-body">
+              <p><span class="fw-bold">{{commento.author}}</span></p>
               {{ commento.comment }}
               <button
-                *ngIf="commento.author === post.user.username"
+                *ngIf="commento.author === infoUser.email"
                 (click)="deleteComment(commento._id)"
                 class="btn btn-danger"
                 type="button"

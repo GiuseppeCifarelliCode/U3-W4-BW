@@ -3,6 +3,7 @@ import { IPostForHome } from './../../models/postForHome';
 import { Component, OnInit } from '@angular/core';
 import { ServiceFetchService } from 'src/app/serviceFetch.service';
 import { CommentComplete } from 'src/app/models/CommentComplete';
+import { IProfile } from 'src/app/models/profile';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +11,7 @@ import { CommentComplete } from 'src/app/models/CommentComplete';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
+  infoUser!: IProfile;
   posts!: IPostForHome[];
   comments!: CommentComplete[];
   addedComment!: Comments;
@@ -21,6 +23,10 @@ export class HomeComponent {
 
   constructor(private srv: ServiceFetchService) {}
   ngOnInit(): void {
+    this.srv.metodoPerGet().subscribe((res) => {
+      // console.log(res);
+      this.infoUser = res as IProfile;
+    })
     //prendo posts
     this.srv.getPosts().subscribe((res) => {
       this.posts = res.reverse();
