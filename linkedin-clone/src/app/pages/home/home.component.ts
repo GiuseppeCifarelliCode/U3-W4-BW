@@ -30,16 +30,16 @@ export class HomeComponent {
     //prendo posts
     this.srv.getPosts().subscribe((res) => {
       this.posts = res.reverse();
-      this.posts = this.posts.slice(0, 55);
+      this.posts = this.posts.slice(0, 20);
       console.log(this.posts);
     });
   }
 
   //prendo commenti
   getCommenti(id: string) {
+    this.comments = []
     this.srv.getComment(id).subscribe((res) => {
-      this.comments = res.reverse();
-      this.comments = this.comments.slice(0, 55);
+      this.comments = res
       console.log(this.comments);
     });
   }
