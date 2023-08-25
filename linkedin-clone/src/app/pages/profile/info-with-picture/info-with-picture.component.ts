@@ -42,9 +42,7 @@ export class InfoWithPictureComponent {
     _v: 0,
   };
   //prova css
-  backgroundImage: string =
-    "background-image:url('https://placekitten.com/1536/200'); background-repeat:no-repeat;";
-  backgroundImageLink: string = '';
+  backgroundImage: string = '';
   constructor(private srv: ServiceFetchService) {}
 
   ngOnInit(): void {
