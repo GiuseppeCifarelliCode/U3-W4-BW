@@ -49,6 +49,7 @@ export class HomeComponent {
     this.srv.postComment(id, data).subscribe((res) => {
       this.addedComment = res as Comments;
       this.getCommenti(id);
+      this.newComment.comment = ''
     });
   }
   deleteComment(id: string) {

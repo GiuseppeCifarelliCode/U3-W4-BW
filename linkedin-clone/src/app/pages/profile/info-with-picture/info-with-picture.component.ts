@@ -15,6 +15,13 @@ import { IPost } from 'src/app/models/post';
 export class InfoWithPictureComponent {
   infoUser!: IProfile;
   allUsers!: IProfile[];
+  formDataProfile: Partial<IProfile> = {
+    area: '',
+    bio: '',
+    title: '',
+    email: '',
+  };
+
   formData: IExperience = {
     role: '',
     company: '',
@@ -45,6 +52,7 @@ export class InfoWithPictureComponent {
     this.srv.metodoPerGet().subscribe((res) => {
       // console.log(res);
       this.infoUser = res as IProfile;
+      this.formDataProfile = this.infoUser;
       this.getEsperienze();
       console.log(this.infoUser);
     });
@@ -61,8 +69,19 @@ export class InfoWithPictureComponent {
     });
   }
 
+  getProfile() {
+    this.srv.metodoPerGet().subscribe((res) => {
+      this.infoUser = res as IProfile;
+      this.formDataProfile = this.infoUser;
+    });
+  }
   //metodo gìper get tutte espeirnze
 
+  modifyProfile(modifica: Partial<IProfile>) {
+    this.srv.metodoPerPut(modifica).subscribe((res) => {
+      console.log(res);
+    });
+  }
   getEsperienze() {
     this.arrayEsperienze = [];
     this.srv.getEsperienze(this.infoUser._id).subscribe((resAll) => {
