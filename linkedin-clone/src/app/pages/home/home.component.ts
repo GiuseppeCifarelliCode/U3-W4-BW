@@ -26,7 +26,7 @@ export class HomeComponent {
     this.srv.metodoPerGet().subscribe((res) => {
       // console.log(res);
       this.infoUser = res as IProfile;
-    })
+    });
     //prendo posts
     this.srv.getPosts().subscribe((res) => {
       this.posts = res.reverse();
