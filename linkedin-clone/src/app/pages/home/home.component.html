@@ -36,7 +36,7 @@
               <p><span class="fw-bold">{{commento.author}}</span></p>
               {{ commento.comment }}
               <button
-                *ngIf="commento.author === infoUser.email"
+                *ngIf="commento.author === infoUser.email || infoUser.username"
                 (click)="deleteComment(commento._id)"
                 class="btn btn-danger"
                 type="button"
