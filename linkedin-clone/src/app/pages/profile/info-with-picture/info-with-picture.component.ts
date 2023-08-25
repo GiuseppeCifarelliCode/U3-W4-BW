@@ -47,6 +47,7 @@ export class InfoWithPictureComponent {
   constructor(private srv: ServiceFetchService, private router:Router) {}
 
   ngOnInit(): void {
+    if(this.srv.backgroundImage)
     this.backgroundImage = this.srv.backgroundImage
     //questa è la get del singiolo profilo
     this.srv.metodoPerGet().subscribe((res) => {
