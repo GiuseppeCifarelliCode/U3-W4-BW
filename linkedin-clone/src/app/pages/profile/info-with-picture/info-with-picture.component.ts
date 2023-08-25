@@ -21,6 +21,7 @@ export class InfoWithPictureComponent {
     bio: '',
     title: '',
     email: '',
+    image:''
   };
 
   formData: IExperience = {
