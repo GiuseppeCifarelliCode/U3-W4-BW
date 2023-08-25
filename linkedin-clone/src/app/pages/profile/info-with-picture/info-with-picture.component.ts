@@ -47,6 +47,7 @@ export class InfoWithPictureComponent {
   constructor(private srv: ServiceFetchService, private router:Router) {}
 
   ngOnInit(): void {
+    this.backgroundImage = this.srv.backgroundImage
     //questa è la get del singiolo profilo
     this.srv.metodoPerGet().subscribe((res) => {
       // console.log(res);
@@ -68,6 +69,9 @@ export class InfoWithPictureComponent {
     });
   }
 
+  saveCoverImage(){
+    this.srv.backgroundImage = this.backgroundImage
+  }
   getProfile() {
     this.srv.metodoPerGet().subscribe((res) => {
       this.infoUser = res as IProfile;

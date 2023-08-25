@@ -18,6 +18,8 @@ export class ServiceFetchService {
   url: string = 'https://striveschool-api.herokuapp.com/api/profile/';
   postUrl: string = 'https://striveschool-api.herokuapp.com/api/posts/';
   commentUrl: string = 'https://striveschool-api.herokuapp.com/api/comments/';
+
+  backgroundImage!: string
   constructor(private http: HttpClient) {}
   //qui famo la fetch get
   //possiamo dare id come parametro della get
