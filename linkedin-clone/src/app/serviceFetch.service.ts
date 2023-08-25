@@ -34,8 +34,8 @@ export class ServiceFetchService {
     });
   }
   //put per modifica profilo
-  metodoPerPut(modifica: string) {
-    return this.http.put(this.url + modifica, {
+  metodoPerPut(modifica:Partial<IProfile>) {
+    return this.http.put(this.url, modifica, {
       headers: {
         Authorization: this.password,
       },
