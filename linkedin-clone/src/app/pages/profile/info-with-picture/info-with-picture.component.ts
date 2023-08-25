@@ -6,6 +6,7 @@ import { IExperience } from 'src/app/models/experience';
 import { FullExperiences } from 'src/app/models/full-experiences';
 import { map } from 'rxjs';
 import { IPost } from 'src/app/models/post';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-info-with-picture',
@@ -43,7 +44,7 @@ export class InfoWithPictureComponent {
   };
   //prova css
   backgroundImage: string = '';
-  constructor(private srv: ServiceFetchService) {}
+  constructor(private srv: ServiceFetchService, private router:Router) {}
 
   ngOnInit(): void {
     //questa è la get del singiolo profilo
@@ -139,6 +140,8 @@ export class InfoWithPictureComponent {
   savePost() {
     this.srv
       .postPost(this.newPost)
-      .subscribe((res) => (this.post = res as IPost));
+      .subscribe((res) => {
+        this.post = res as IPost
+        this.router.navigate(['/home'])});
   }
 }

@@ -6,6 +6,7 @@
       *ngFor="let post of posts; let i = index"
       class="d-flex flex-column col-8"
     >
+    <h1 class="text-center mt-2 ">Post</h1>
       <!-- creazione dinamica card post -->
       <div *ngIf="posts" class="card mb-3">
         <div class="card-body">
@@ -32,7 +33,7 @@
             </button>
           </p>
           <div class="collapse" id="collapseExample{{ i }}">
-            <div *ngFor="let commento of comments" class="card card-body">
+            <div *ngFor="let commento of comments" class="card card-body d-flex">
               <p><span class="fw-bold">{{commento.author}}</span></p>
               {{ commento.comment }}
               <button
